@@ -6,11 +6,8 @@ services:
         restart: always
         ports:
             - "80:80"
-            - "9001:9001"
         environment:
             - COMPOSER_MEMORY_LIMIT=-1
             - PHP_IDE_CONFIG= "serverName=Docker"
         volumes:
             - /Users/ec/Desktop/investprojects:/var/www/html
-#        extra_hosts:
-#            - "host.docker.internal:172.32.0.1"

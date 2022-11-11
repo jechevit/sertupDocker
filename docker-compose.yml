@@ -6,13 +6,10 @@ services:
         restart: always
         ports:
             - "80:80"
-            - "9001:9001"
         environment:
             - COMPOSER_MEMORY_LIMIT=-1
         volumes:
             - /Users/ec/Desktop/investprojects:/var/www/html
-        extra_hosts:
-            - "host.docker.internal:172.25.0.3"
     db:
         build: ./mysql/
         container_name: db
