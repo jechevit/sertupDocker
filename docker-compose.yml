@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+    portal:
+        build: ./ubuntu/
+        container_name: web
+        restart: always
+        ports:
+            - "80:80"
+            - "9001:9001"
+        environment:
+            - COMPOSER_MEMORY_LIMIT=-1
+        volumes:
+            - /Users/ec/Desktop/investprojects:/var/www/html
+        extra_hosts:
+            - "host.docker.internal:172.25.0.3"
+    db:
+        build: ./mysql/
+        container_name: db
+        restart: always
+        ports:
+            - "3306:3306"
+        volumes:
+            - data-mysql:/var/lib/mysql
+            - ./mysql/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+            - /Users/ec/Desktop/docker/dump:/home/dump
+volumes:
+    data-mysql:
