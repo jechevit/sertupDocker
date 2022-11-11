@@ -13,7 +13,6 @@ version: '3.8'
    restart: always
    ports:
         - "80:80"
-        - "9001:9001"
    environment:
         - COMPOSER_MEMORY_LIMIT=-1
         - PHP_IDE_CONFIG= "serverName=Docker"
@@ -42,7 +41,6 @@ RUN ln -s /var/www/html/yii /usr/bin/yii
 CMD service php7.2-fpm start && nginx -g "daemon off;"
 
 EXPOSE 80
-EXPOSE 9001
 ```
 3. еще нужны настройки xDebug, они вот такие:
 ```
